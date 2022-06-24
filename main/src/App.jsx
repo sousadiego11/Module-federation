@@ -10,9 +10,9 @@ export const App = () => {
     }, [])
 
     return (
-        <>
+        <header>
             <h1>React app! {count}</h1>
             <button onClick={incrementCount}>+</button>
-        </>
+        </header>
     )
 }
