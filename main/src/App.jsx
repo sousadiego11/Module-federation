@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import reactLogo from './images/react.png'
+import logo from './images/webpack.png'
 
 export const App = () => {
     const [count, setCount] = useState(0)
@@ -16,7 +16,7 @@ export const App = () => {
             <button className='increment' onClick={incrementCount}>+</button>
         </header>
 				<section>
-					<img src={reactLogo} alt="react" width={200} />
+					<img src={logo} alt="react" width={200} />
 				</section>
 			</div>
     )
