@@ -11,9 +11,9 @@ export const App = () => {
 
     return (
 			<div className='wrapper'>
-        <header>
+        <header className='header'>
             <h1>React app! {count}</h1>
-            <button onClick={incrementCount}>+</button>
+            <button className='increment' onClick={incrementCount}>+</button>
         </header>
 				<section>
 					<img src={reactLogo} alt="react" width={200} />
