@@ -16,7 +16,7 @@ export const App = () => {
             <button className='increment' onClick={incrementCount}>+</button>
         </header>
 				<section>
-					<img src={logo} alt="react" width={200} />
+					<img className='logo' src={logo} alt="react" width={200} />
 				</section>
 			</div>
     )

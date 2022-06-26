@@ -1,3 +1,5 @@
+@use 'animations';
+
 $bg-button: #8ed5fa;
 $bg-button-active: #1c78c0;
 
@@ -29,5 +31,4 @@ $bg-button-active: #1c78c0;
 
 .increment:active {
 	background-color: $bg-button-active;
-
 }
