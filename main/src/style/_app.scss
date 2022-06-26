@@ -1,3 +1,33 @@
+$bg-button: #00dbfc;
+$bg-button-active: #099ec3;
+
 .wrapper {
     text-align: center;
+}
+
+.header {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	
+	.increment {
+		height: 50%;
+		margin: 0 12px;
+		width: 30px;
+
+		border: none;
+		border-radius: 4px;
+
+		background-color: $bg-button;
+		color: white;
+
+		transition: ease-in 0.1s;
+		
+		cursor: pointer;
+	}
+}
+
+.increment:active {
+	background-color: $bg-button-active;
+
 }
