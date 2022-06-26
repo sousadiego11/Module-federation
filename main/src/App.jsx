@@ -16,7 +16,9 @@ export const App = () => {
             <button className='increment' onClick={incrementCount}>+</button>
         </header>
 				<section>
-					<img className='logo' src={logo} alt="react" width={200} />
+					<a href='https://webpack.js.org/'>
+						<img className='logo' src={logo} alt="Webpack5" width={200} />
+					</a>
 				</section>
 			</div>
     )
