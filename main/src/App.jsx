@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import './style/App.scss'
+import reactLogo from './images/react.png'
 
 export const App = () => {
     const [count, setCount] = useState(0)
@@ -10,9 +10,14 @@ export const App = () => {
     }, [])
 
     return (
+			<div className='wrapper'>
         <header>
             <h1>React app! {count}</h1>
             <button onClick={incrementCount}>+</button>
         </header>
+				<section>
+					<img src={reactLogo} alt="react" width={200} />
+				</section>
+			</div>
     )
 }

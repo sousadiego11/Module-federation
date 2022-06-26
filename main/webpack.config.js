@@ -1,18 +1,16 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
 module.exports = {
-    mode: 'development',
+    mode,
     entry: path.resolve(__dirname, 'src/index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
-        publicPath: '/'
+				assetModuleFilename: 'assets/[hash][ext][query]'
     },
     devServer: {
-        static: {
-            directory: path.resolve(__dirname, 'dist')
-        },
         port: 3005,
         open: true,
         allowedHosts: 'all'
@@ -20,18 +18,25 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(jsx|js)$/,
-                exclude: /node_modules/,
+                test: /\.jsx?$/i,
+                exclude: /node_modules/i,
                 loader: 'babel-loader',
                 options: {
                     presets: ['@babel/preset-react']
                 }
             },
             {
-                test: /\.(css|scss)$/,
+                test: /\.s?css$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
-            }
+            },
+						{
+							test: /\.(png|svg|jpg|jpeg|gif)$/i,
+							type: 'asset/resource'
+						}
         ]
     },
+		resolve: {
+			extensions: ['.js', '.jsx']
+		},
     plugins: [ new HtmlWebpackPlugin({ template: './src/public/index.html', inject: true }) ]
 }
