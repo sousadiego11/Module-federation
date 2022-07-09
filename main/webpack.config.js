@@ -38,5 +38,6 @@ module.exports = {
 		resolve: {
 			extensions: ['.js', '.jsx']
 		},
-    plugins: [ new HtmlWebpackPlugin({ template: './src/public/index.html', inject: true }) ]
+    plugins: [ new HtmlWebpackPlugin({ template: './src/public/index.html', inject: true }) ],
+    devtool: 'source-map'
 }
