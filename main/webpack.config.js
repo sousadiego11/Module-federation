@@ -1,11 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 const { ModuleFederationPlugin } = require('webpack').container
 const ProvidePlugin = require('webpack').ProvidePlugin
 const deps = require('./package.json').dependencies
-const publicPath = mode === 'production' ? 'https://webpack5-modulefed.netlify.app/' : 'http://localhost:3001/'
-const headerRemotePath = mode === 'production' ? 'https://webpack5-modulefed-remote.netlify.app/remoteEntry.js' : 'http://localhost:3002/remoteEntry.js'
+
+const publicPath = !mode || mode === 'production' ? 'https://webpack5-modulefed.netlify.app/' : 'http://localhost:3001/'
+const headerRemotePath = !mode || mode === 'production' ? 'https://webpack5-modulefed-remote.netlify.app/remoteEntry.js' : 'http://localhost:3002/remoteEntry.js'
 
 module.exports = {
     mode,
@@ -51,6 +52,7 @@ module.exports = {
 			}),
 			new ModuleFederationPlugin({
 				name: 'Main',
+				filename: 'remoteEntry.js',
 				remotes: {
 					HeaderRemote: `HeaderRemote@${headerRemotePath}`
 				},
