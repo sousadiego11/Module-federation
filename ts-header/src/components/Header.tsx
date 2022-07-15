@@ -18,7 +18,7 @@ export function Header(): JSX.Element {
 	}
 	
 	return (
-		<div style={{ background: '#ccd9ed' }}>
+		<div style={{ background: '#ccd9ed', textAlign: 'center' }}>
 			<h1>Olá, eu sou um componente remoto {count}</h1>
 			<DefaultExportedFooter />
 			<NamedExportedButton render="+" onClick={onLoad} />
