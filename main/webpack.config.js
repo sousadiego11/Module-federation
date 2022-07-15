@@ -5,17 +5,14 @@ const { ModuleFederationPlugin } = require('webpack').container
 const ProvidePlugin = require('webpack').ProvidePlugin
 const deps = require('./package.json').dependencies
 
-const publicPath = !mode || mode === 'production' ? 'https://webpack5-modulefed.netlify.app/' : 'http://localhost:3001/'
-const headerRemotePath = !mode || mode === 'production' ? 'https://webpack5-modulefed-remote.netlify.app/remoteEntry.js' : 'http://localhost:3002/remoteEntry.js'
-
-module.exports = {
+module.exports = ({ mode = 'development' }) => ({
     mode,
     entry: path.resolve(__dirname, 'src/index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
 				assetModuleFilename: 'assets/[hash][ext][query]',
-				publicPath
+				publicPath: mode === 'development' ? 'http://localhost:3002/' :  'https://webpack5-modulefed.vercel.app/'
     },
     devServer: {
         port: 3001,
@@ -54,7 +51,7 @@ module.exports = {
 				name: 'Main',
 				filename: 'remoteEntry.js',
 				remotes: {
-					HeaderRemote: `HeaderRemote@${headerRemotePath}`
+					HeaderRemote: mode === 'development' ? 'HeaderRemote@http://localhost:3002/remoteEntry.js' : 'HeaderRemote@hhttps://webpack5-modulefed-remote.vercel.app/remoteEntry.js'
 				},
 				shared: {
 					react: {
@@ -69,4 +66,4 @@ module.exports = {
 			}) 
 		],
     devtool: 'source-map'
-}
+})
