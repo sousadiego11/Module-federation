@@ -4,6 +4,7 @@ const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development
 const { ModuleFederationPlugin } = require('webpack').container
 const ProvidePlugin = require('webpack').ProvidePlugin
 const deps = require('./package.json').dependencies
+const publicPath = mode === 'production' ? 'https://master--webpack5-modulefed.netlify.app/' : 'http://localhost:3001/'
 
 module.exports = {
     mode,
@@ -12,7 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
 				assetModuleFilename: 'assets/[hash][ext][query]',
-				publicPath: 'http://localhost:3001/'
+				publicPath
     },
     devServer: {
         port: 3001,

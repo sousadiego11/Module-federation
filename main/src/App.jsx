@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react'
 import logo from './images/webpack.png'
-import './style/index.scss'
 
 export const App = () => {
     const [count, setCount] = useState(0)
