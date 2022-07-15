@@ -5,13 +5,13 @@ const ProvidePlugin = require('webpack').ProvidePlugin
 
 const deps = require('./package.json').dependencies
 
-module.exports = ({ mode }) => ({
-    mode: mode ?? 'development',
+module.exports = ({ mode = 'development' }) => ({
+    mode: mode,
     entry: path.resolve(__dirname, 'src/index.tsx'),
     output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: '[name][hash].js',
-			publicPath: mode && mode === 'production' ? 'https://webpack5-modulefed-remote.netlify.app/' : 'http://localhost:3002/'
+			publicPath: mode === 'development' ? 'http://localhost:3002/' :  'https://webpack5-modulefed-remote.netlify.app/'
     },
     devServer: {
 			open: true,

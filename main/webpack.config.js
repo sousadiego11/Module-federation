@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
 const { ModuleFederationPlugin } = require('webpack').container
 const ProvidePlugin = require('webpack').ProvidePlugin
 const deps = require('./package.json').dependencies
