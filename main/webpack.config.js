@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 const { ModuleFederationPlugin } = require('webpack').container
 const ProvidePlugin = require('webpack').ProvidePlugin
 const deps = require('./package.json').dependencies
@@ -12,7 +11,7 @@ module.exports = ({ mode = 'development' }) => ({
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
 				assetModuleFilename: 'assets/[hash][ext][query]',
-				publicPath: mode === 'development' ? 'http://localhost:3002/' :  'https://webpack5-modulefed.vercel.app/'
+				publicPath: mode === 'development' ? 'http://localhost:3001/' :  'https://webpack5-modulefed.vercel.app/'
     },
     devServer: {
         port: 3001,
