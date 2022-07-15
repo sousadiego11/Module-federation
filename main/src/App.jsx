@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import logo from './images/webpack.png'
+import './style/index.scss'
 
 export const App = () => {
     const [count, setCount] = useState(0)
@@ -12,7 +13,7 @@ export const App = () => {
     return (
 			<div className='wrapper'>
         <header className='header'>
-            <h1>React app! {count}</h1>
+            <h1>React app, eu sou o principal! {count}</h1>
             <button className='increment' onClick={incrementCount}>+</button>
         </header>
 				<section>

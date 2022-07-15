@@ -18,10 +18,10 @@ export function Header(): JSX.Element {
 	}
 	
 	return (
-		<>
-			<h1>Olá {count}</h1>
+		<div style={{ background: '#ccd9ed' }}>
+			<h1>Olá, eu sou um componente remoto {count}</h1>
 			<DefaultExportedFooter />
 			<NamedExportedButton render="+" onClick={onLoad} />
-		</>
+		</div>
 	)
 }

@@ -1,6 +1,2 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import { App } from './App'
-import './style/index.scss'
-
-ReactDom.render(<App />, document.getElementById('app'))
+// Gives webpack time for async load resources
+import('./bootstrap')
