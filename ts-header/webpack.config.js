@@ -11,7 +11,7 @@ module.exports = ({ mode }) => ({
     output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: '[name][hash].js',
-			publicPath: 'http://localhost:3002/'
+			publicPath: mode && mode === 'production' ? 'https://webpack5-modulefed-remote.netlify.app/' : 'http://localhost:3002/'
     },
     devServer: {
 			open: true,
