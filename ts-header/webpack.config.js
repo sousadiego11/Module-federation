@@ -11,7 +11,7 @@ module.exports = ({ mode = 'development' }) => ({
     output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: '[name][hash].js',
-			publicPath: mode === 'development' ? 'http://localhost:3002/' :  'https://webpack5-modulefed-remote.netlify.app/'
+			publicPath: mode === 'development' ? 'http://localhost:3002/' :  'https://webpack5-react-remote.vercel.app/'
     },
     devServer: {
 			open: true,

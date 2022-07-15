@@ -11,7 +11,7 @@ module.exports = ({ mode = 'development' }) => ({
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
 				assetModuleFilename: 'assets/[hash][ext][query]',
-				publicPath: mode === 'development' ? 'http://localhost:3001/' :  'https://webpack5-modulefed.vercel.app/'
+				publicPath: mode === 'development' ? 'http://localhost:3001/' :  'https://webpack5-react-main.vercel.app/'
     },
     devServer: {
         port: 3001,
@@ -50,7 +50,7 @@ module.exports = ({ mode = 'development' }) => ({
 				name: 'Main',
 				filename: 'remoteEntry.js',
 				remotes: {
-					HeaderRemote: mode === 'development' ? 'HeaderRemote@http://localhost:3002/remoteEntry.js' : 'HeaderRemote@hhttps://webpack5-modulefed-remote.vercel.app/remoteEntry.js'
+					HeaderRemote: mode === 'development' ? 'HeaderRemote@http://localhost:3002/remoteEntry.js' : 'HeaderRemote@https://webpack5-react-remote.vercel.app/remoteEntry.js'
 				},
 				shared: {
 					react: {
