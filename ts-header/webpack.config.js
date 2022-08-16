@@ -46,7 +46,8 @@ module.exports = ({ mode = 'development' }) => ({
 				{
 					test: /\.jsx?$/i,
 					loader: 'babel-loader',
-					include: path.resolve(__dirname, 'src')
+					include: path.resolve(__dirname, 'src'),
+					exclude: path.resolve(__dirname, 'jest.config.js')
 				},
 				{
 					test: /\.tsx?$/i,
