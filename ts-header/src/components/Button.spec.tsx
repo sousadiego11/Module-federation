@@ -1,7 +1,11 @@
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import { Button } from './Button'
 
-test('bla', () => {
-	const { getByText } = render(<Button render='a' onClick={() => {}} />)
-	expect(getByText('a')).toBeTruthy()
+test('Should fire function', () => {
+	const handleClick = jest.fn()
+	const component = render(<Button render='Test' onClick={handleClick} />)
+
+	fireEvent.click(component.getByText('Test'))
+
+	expect(handleClick).toHaveBeenCalledTimes(1)
 })
