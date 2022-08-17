@@ -7,7 +7,7 @@
     "build-dev": "webpack --env mode=development",
     "start": "webpack serve",
     "build": "webpack --env mode=production",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
